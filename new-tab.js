@@ -6,7 +6,7 @@ if (linkURL) {
 }
 
 // else if there is selected text
-var sel = FireGestures.getSelectedText();
+var sel = FireGestures.getSelectedText().replace(/^\s+|\s+$/g, '');
 if (sel) {
 	// if it is an URL, open link in new tab
 	// else if it is an email, compose in new tab
