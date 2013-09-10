@@ -11,7 +11,7 @@ if (sel) {
 	// if it is an URL, open link in new tab
 	// else if it is an email, compose in new tab
 	// else, search for selection
-	if (sel.match(new RegExp("^(http(s?)://)?[a-z0-9]+(\\.[a-z0-9]+)+"))) {
+	if (sel.match(new RegExp("^(http(s?)://)?[a-z0-9]+(\\.[a-z0-9]+)+(/|$)"))) {
 		gBrowser.loadOneTab(sel, null, null, null, true, false);
 	} else if (sel.match(new RegExp("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", "i"))) {
 		gBrowser.loadOneTab("mailto:" + sel, null, null, null, true, false);
