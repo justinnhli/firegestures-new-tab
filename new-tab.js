@@ -8,14 +8,14 @@ if (linkURL) {
 // else if there is selected text
 var sel = FireGestures.getSelectedText().replace(/^\s+|\s+$/g, '');
 if (sel) {
-	// if it is an URL, open link in new tab
-	// else if it is an email, compose in new tab
-	// else, search for selection
 	if (sel.match(new RegExp("^(http(s?)://)?[a-z0-9-]+(\\.[a-z0-9-]+)+"))) {
+		// if it is an URL, open link in new tab
 		gBrowser.loadOneTab(sel, null, null, null, true, false);
 	} else if (sel.match(new RegExp("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", "i"))) {
+		// if it is an email address, compose in new tab
 		gBrowser.loadOneTab("mailto:" + sel, null, null, null, true, false);
 	} else {
+		// otherwise, search for selection
 		BrowserSearch.loadSearch(sel, true);
 	}
 	return;
