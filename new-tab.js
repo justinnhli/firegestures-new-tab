@@ -14,6 +14,9 @@ if (sel) {
 	} else if (sel.match(new RegExp("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", "i"))) {
 		// if it is an email address, compose in new tab
 		gBrowser.loadOneTab("mailto:" + sel, null, null, null, true, false);
+	} else if (sel.match(new RegExp("^@[a-z0-9_]+$", "i"))) {
+		// if it is a Twitter handle, open the user's Twitter feed
+		gBrowser.loadOneTab("https://twitter.com/" + sel + "/", null, null, null, true, false);
 	} else {
 		// otherwise, search for selection
 		BrowserSearch.loadSearch(sel, true);
