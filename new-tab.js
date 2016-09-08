@@ -8,7 +8,7 @@ if (linkURL) {
 // else if there is selected text
 var sel = FireGestures.getSelectedText().replace(/^\s+|\s+$/g, '');
 if (sel) {
-	if (sel.match(new RegExp("^(http(s?)://)?[a-z0-9-]+(\\.[a-z0-9-]+)+"))) {
+	if (sel.match(new RegExp("^(http(s?)://)?[a-z0-9-]+(\\.[a-z0-9-]+)+", "i"))) {
 		// if it is an URL, open link in new tab
 		gBrowser.loadOneTab(sel, null, null, null, true, false);
 	} else if (sel.match(new RegExp("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", "i"))) {
